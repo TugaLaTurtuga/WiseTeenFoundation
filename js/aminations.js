@@ -31,11 +31,11 @@ const observer = new IntersectionObserver((entries) => {
 pages.forEach(page => observer.observe(page));
 
 
-let mainVis = false;
+let Vis = new Array(255).fill(0); // checks if the amination was played
 document.addEventListener('scroll', (e) => {
     console.log(visibilityData); // Debugging output
-    if (visibilityData[2][1] > 20 && !mainVis){
-        mainVis = true;
+    if (visibilityData[2][1] > 20 && Vis[0] === 0){
+        ++Vis[0];
         document.querySelector('.mainBottomLeft').style.opacity = '1';
     }
 });

@@ -69,15 +69,15 @@ body {
     background-color: var(--backgroundColorOdd);
 }
 
-.even h2 {
+h2 {
     margin-left: 10px;
 }
 
-.even h3 {
+h3 {
     margin-left: 20px;
 }
 
-.even p {
+p {
     margin-left: 30px;
 }
 
@@ -90,22 +90,25 @@ body {
 }
 
 .mainLogo {
-    height: 70%;
+    width: 500px;
+    max-width: 90%;
     aspect-ratio: 1;
     animation: mainLogo_ami 2s ease-out forwards;
 }
 
 .mainText {
     font-weight: 800;
-    font-size: 60px;
+    font-size: 70px;
     margin-top: -40px;
+    margin-left: 0px;
     animation: mainText_ami 2s ease-out forwards;
 }
 
 .mainSubText {
-    font-weight: 600;
-    font-size: 30px;
+    font-weight: 500;
+    font-size: 40px;
     margin-top: -25px;
+    margin-left: 0px;
     animation: mainSubText_ami 2.5s ease-out forwards;
 }
 
@@ -113,6 +116,7 @@ body {
     position: absolute;
     bottom: -20px;
     left: 10px;
+    margin-left: 0px;
     font-weight: 300;
     font-size: 30px;
     opacity: 0;
@@ -171,6 +175,17 @@ body {
     }
     100% {
         transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes appearLeft {
+    0% {
+        transform: scale(1) translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateX(0px);
         opacity: 1;
     }
 }
