@@ -1,0 +1,176 @@
+:root {
+    --backgroundColor: white;
+    --backgroundColorOdd: #eee;
+    --txtColor: black;
+    --accentColor: rgb(10, 150, 150);
+    --accentColor: rgb(10, 200, 200);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--accentColor);
+    color: var(--txtColor);
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0px;
+    overflow-x: hidden;
+    font-size: 1.5rem;
+}
+
+.topLogo {
+    margin-top: -4px;
+    border-radius: 10px;
+    height: 65px;
+    aspect-ratio: 1;
+}
+
+.topPart {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(to top, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 1)
+    );
+
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    
+    z-index: 1000;
+}
+
+
+.topBtnContainer {
+    position: fixed;
+    width: 100%;
+    top: 10px;
+    left: -5px;
+    text-align-last: right;
+}
+
+.page {
+    margin: 0;
+    padding: 50px;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--backgroundColor);
+    box-sizing: border-box;
+}
+
+
+.even {
+    background-color: var(--backgroundColorOdd);
+}
+
+.even h2 {
+    margin-left: 10px;
+}
+
+.even h3 {
+    margin-left: 20px;
+}
+
+.even p {
+    margin-left: 30px;
+}
+
+
+.center {
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainLogo {
+    height: 70%;
+    aspect-ratio: 1;
+    animation: mainLogo_ami 2s ease-out forwards;
+}
+
+.mainText {
+    font-weight: 800;
+    font-size: 60px;
+    margin-top: -40px;
+    animation: mainText_ami 2s ease-out forwards;
+}
+
+.mainSubText {
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: -25px;
+    animation: mainSubText_ami 2.5s ease-out forwards;
+}
+
+.mainBottomLeft {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    font-weight: 300;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes mainLogo_ami {
+    0% {
+        transform: scale(5) translateY(50px);
+        opacity: 0;
+    }
+    40% {
+        transform: scale(1) translateY(50px);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1) translateY(50px);
+        opacity: 1;
+    }
+    91% {
+        transform: scale(1);
+    }
+}
+
+@keyframes mainText_ami {
+    0% {
+        transform: scale(1) translateY(50px);
+        opacity: 0;
+    }
+    40% {
+        transform: scale(1) translateY(50px);
+        opacity: 0;
+    }
+    77.5% {
+        transform: scale(1) translateY(50px);
+        opacity: 1;
+    }
+    91% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes mainSubText_ami {
+    0% {
+        transform: scale(1) translateY(20px);
+        opacity: 0;
+    }
+    40% {
+        transform: scale(1) translateY(20px);
+        opacity: 0;
+    }
+    94% {
+        transform: scale(1) translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
