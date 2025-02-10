@@ -31,11 +31,37 @@ const observer = new IntersectionObserver((entries) => {
 pages.forEach(page => observer.observe(page));
 
 
-let Vis = new Array(255).fill(0); // checks if the amination was played
-document.addEventListener('scroll', (e) => {
-    console.log(visibilityData); // Debugging output
-    if (visibilityData[2][1] > 20 && Vis[0] === 0){
-        ++Vis[0];
-        document.querySelector('.mainBottomLeft').style.opacity = '1';
+// Array to track if an animation has already been played (prevents re-triggering)
+let Vis = new Array(255).fill(0);
+
+// Function to check visibility and trigger animations
+function triggerAnimation(pageIndex, thresholds) {
+    if (visibilityData[pageIndex][0]) { // Checks if the page is visible
+        const visibilityPercentage = visibilityData[pageIndex][1];
+
+        thresholds.forEach(({ threshold, visIndex, elementSelector, animation, time }) => {
+            if (visibilityPercentage > threshold && Vis[visIndex] === 0) {
+                Vis[visIndex] = 1; // Mark the animation as played
+                document.querySelector(elementSelector).style.animation = `${animation} ${time}s ease forwards`;
+            }
+        });
     }
+}
+
+// Event listener for scroll to check visibility
+document.addEventListener('scroll', () => {
+    triggerAnimation(2, [
+        { threshold: 10, visIndex: 0, elementSelector: '.mainBottomLeft', animation: 'fadeIn', time: 0.4 },
+        { threshold: 50, visIndex: 1, elementSelector: '#dpMain', animation: 'appearLeft', time: 0.4 },
+        { threshold: 68, visIndex: 2, elementSelector: '#dpMainSub', animation: 'appearLeft', time: 0.4 }
+    ]);
+
+    triggerAnimation(3, [
+        { threshold: 50, visIndex: 3, elementSelector: '#gMain', animation: 'appearLeft', time: 0.3 },
+        
+    ]);
+
+    triggerAnimation(4, [
+        { threshold: 5, visIndex: 4, elementSelector: '#gMainSub', animation: 'appearLeft', time: 10 }
+    ]);
 });

@@ -3,7 +3,7 @@
     --backgroundColorOdd: #eee;
     --txtColor: black;
     --accentColor: rgb(10, 150, 150);
-    --accentColor: rgb(10, 200, 200);
+    --accentColor2: rgb(10, 200, 200);
 }
 
 html {
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background-color: var(--accentColor);
+    background-color: var(--accentColor2);
     color: var(--txtColor);
     font-family: "Rubik", serif;
     font-optical-sizing: auto;
@@ -51,8 +51,23 @@ body {
     position: fixed;
     width: 100%;
     top: 10px;
-    left: -5px;
+    right: 10px;
     text-align-last: right;
+}
+
+.topBtn {
+    font-family: "Rubik", serif;
+    background-color: transparent;
+    border: 0;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.topBtn:hover {
+    background-color: rgba(221, 221, 221, 0.6);
 }
 
 .page {
@@ -175,17 +190,6 @@ p {
     }
     100% {
         transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes appearLeft {
-    0% {
-        transform: scale(1) translateX(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1) translateX(0px);
         opacity: 1;
     }
 }
