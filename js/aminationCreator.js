@@ -47,3 +47,11 @@ function triggerAnimation(pageIndex, thresholds) {
         });
     }
 }
+
+function openPage(url, target = true) {
+    if (target) {
+        window.open(url, '_self'); // Opens in the same tab
+    } else {
+        window.open(url, '_blank'); // Opens in a new tab
+    }
+}

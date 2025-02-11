@@ -9,10 +9,13 @@
 
 html {
     scroll-behavior: smooth;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    background-color: rgb(var(--backgroundColor));
 }
 
 body {
-    background-color: rgb(var(--accentColor2));
+    background-color: rgb(var(--backgroundColor));
     color: rgb(var(--txtColor));
     font-family: "Rubik", serif;
     font-optical-sizing: auto;
